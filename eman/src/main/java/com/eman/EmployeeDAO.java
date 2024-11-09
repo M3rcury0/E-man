@@ -18,9 +18,9 @@ public interface EmployeeDAOI {
 // EmployeeDAO class implementing EmployeeDAOI
 public class EmployeeDAO implements EmployeeDAOI {
     // Database connection details
-    private static final String URL = "jdbc:mysql://localhost:3306/empms";
-    private static final String USERNAME = "root";
-    private static final String PASSWORD = "root";
+    private static final String URL = "jdbc:mysql://localhost:3306/empms"; // URL of the database
+    private static final String USERNAME = "root"; // Server Usermame 
+    private static final String PASSWORD = "root"; // Server Password
 
  
     @Override
