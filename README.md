@@ -35,6 +35,6 @@ Before running this project, ensure you have the following installed:
 ## Execution
 
 - The working **DAO file** is located at: `eman/src/main/java/com/eman/EmployeeDAO.java`
-- The **MySQL database** needs to be online for CRUD operations to work.
+- The **MySQL server** with the database needs to be online for CRUD operations to work.
 - The `.sql` file containing the schema and tables is located at: `eman/Database.sql`
 
