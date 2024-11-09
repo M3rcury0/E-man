@@ -21,8 +21,6 @@ This system is developed using **Spring Tools 4** for Eclipse and leverages **Ma
 
 ---
 
-## Getting Started
-
 ### Prerequisites
 
 Before running this project, ensure you have the following installed:
@@ -33,3 +31,6 @@ Before running this project, ensure you have the following installed:
 - **Maven** (for build automation)
 - **MySQL** (for database connection)
 
+## Execution
+-The working DAO file is on path: `eman/src/main/java/com/eman/EmployeeDAO.java`
+-The MySQL database needs to be online for CRUD operations to work
