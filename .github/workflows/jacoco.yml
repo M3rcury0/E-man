@@ -25,5 +25,6 @@ jobs:
           java-version: '21'
 
       - name: Build with Maven
-        run: mvn -B clean verify
+        run: mvn -f eman/pom.xml -B clean verify
+
 
