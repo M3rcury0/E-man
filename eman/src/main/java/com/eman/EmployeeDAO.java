@@ -7,23 +7,16 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-// EmployeeDAOI Interface
-public interface EmployeeDAOI {
-    void readAllUser();
-    void insertEmployee(String name, int age, int managerId);
-    void deleteEmployee(int id);
-    void updateEmployee(String name, int age, int managerId, int id);
-}
 
-// EmployeeDAO class implementing EmployeeDAOI
-public class EmployeeDAO implements EmployeeDAOI {
+
+public class EmployeeDAO {
     // Database connection details
-    private static final String URL = "jdbc:mysql://localhost:3306/empms"; // URL of the database
-    private static final String USERNAME = "root"; // Server Usermame 
-    private static final String PASSWORD = "root"; // Server Password
+    private static final String URL = "jdbc:mysql://localhost:3306/empms";
+    private static final String USERNAME = "root";
+    private static final String PASSWORD = "root";
 
  
-    @Override
+   
     public void readAllUser() // Displays the name of all employees 
     {
         String sql = "SELECT * FROM Employee";
@@ -41,7 +34,7 @@ public class EmployeeDAO implements EmployeeDAOI {
     }
 
 
-    @Override
+    
     public void insertEmployee(String name, int age, int managerId) //Inserts a new employee in the database 
     {
         String sql = "INSERT INTO EMPLOYEE(name, age, manager_id) VALUES(?, ?, ?)";
@@ -58,7 +51,7 @@ public class EmployeeDAO implements EmployeeDAOI {
         }
     }
 
-    @Override
+    
     public void deleteEmployee(int id) // Deletes a row taking id as reference
     {
         String sql = "DELETE FROM EMPLOYEE WHERE id=?";
@@ -73,7 +66,7 @@ public class EmployeeDAO implements EmployeeDAOI {
         }
     }
 
-    @Override
+    
     public void updateEmployee(String name, int age, int managerId, int id) // Updates an existing row using id as reference 
     {
         String sql = "UPDATE EMPLOYEE SET name=?, age=?, manager_id=? WHERE id=?";
