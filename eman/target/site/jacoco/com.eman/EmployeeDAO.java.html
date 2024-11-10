@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>EmployeeDAO.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">eman</a> &gt; <a href="index.source.html" class="el_package">com.eman</a> &gt; <span class="el_source">EmployeeDAO.java</span></div><h1>EmployeeDAO.java</h1><pre class="source lang-java linenums">package com.eman;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+
+
+<span class="nc" id="L12">public class EmployeeDAO {</span>
+    // Database connection details
+    private static final String URL = &quot;jdbc:mysql://localhost:3306/empms&quot;;
+    private static final String USERNAME = &quot;root&quot;;
+    private static final String PASSWORD = &quot;root&quot;;
+
+ 
+   
+    public void readAllUser() // Displays the name of all employees 
+    {
+<span class="nc" id="L22">        String sql = &quot;SELECT * FROM Employee&quot;;</span>
+<span class="nc" id="L23">        try (Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);</span>
+<span class="nc" id="L24">             Statement stmt = con.createStatement();</span>
+<span class="nc" id="L25">             ResultSet r = stmt.executeQuery(sql)) {</span>
+
+<span class="nc bnc" id="L27" title="All 2 branches missed.">            while (r.next()) {</span>
+<span class="nc" id="L28">                String name = r.getString(&quot;name&quot;);</span>
+<span class="nc" id="L29">                System.out.println(name);</span>
+<span class="nc" id="L30">            }</span>
+<span class="nc" id="L31">        } catch (SQLException e) {</span>
+<span class="nc" id="L32">            e.printStackTrace();</span>
+<span class="nc" id="L33">        }</span>
+<span class="nc" id="L34">    }</span>
+
+
+    
+    public void insertEmployee(String name, int age, int managerId) //Inserts a new employee in the database 
+    {
+<span class="nc" id="L40">        String sql = &quot;INSERT INTO EMPLOYEE(name, age, manager_id) VALUES(?, ?, ?)&quot;;</span>
+<span class="nc" id="L41">        try (Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);</span>
+<span class="nc" id="L42">             PreparedStatement ps = con.prepareStatement(sql)) {</span>
+
+<span class="nc" id="L44">            ps.setString(1, name);</span>
+<span class="nc" id="L45">            ps.setInt(2, age);</span>
+<span class="nc" id="L46">            ps.setInt(3, managerId);</span>
+<span class="nc" id="L47">            ps.executeUpdate();</span>
+<span class="nc" id="L48">            System.out.println(&quot;Insertion Successful&quot;);</span>
+<span class="nc" id="L49">        } catch (SQLException e) {</span>
+<span class="nc" id="L50">            e.printStackTrace();</span>
+<span class="nc" id="L51">        }</span>
+<span class="nc" id="L52">    }</span>
+
+    
+    public void deleteEmployee(int id) // Deletes a row taking id as reference
+    {
+<span class="nc" id="L57">        String sql = &quot;DELETE FROM EMPLOYEE WHERE id=?&quot;;</span>
+<span class="nc" id="L58">        try (Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);</span>
+<span class="nc" id="L59">             PreparedStatement ps = con.prepareStatement(sql)) {</span>
+
+<span class="nc" id="L61">            ps.setInt(1, id);</span>
+<span class="nc" id="L62">            ps.executeUpdate();</span>
+<span class="nc" id="L63">            System.out.println(&quot;Deletion Successful&quot;);</span>
+<span class="nc" id="L64">        } catch (SQLException e) {</span>
+<span class="nc" id="L65">            e.printStackTrace();</span>
+<span class="nc" id="L66">        }</span>
+<span class="nc" id="L67">    }</span>
+
+    
+    public void updateEmployee(String name, int age, int managerId, int id) // Updates an existing row using id as reference 
+    {
+<span class="nc" id="L72">        String sql = &quot;UPDATE EMPLOYEE SET name=?, age=?, manager_id=? WHERE id=?&quot;;</span>
+<span class="nc" id="L73">        try (Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);</span>
+<span class="nc" id="L74">             PreparedStatement ps = con.prepareStatement(sql)) {</span>
+
+<span class="nc" id="L76">            ps.setString(1, name);</span>
+<span class="nc" id="L77">            ps.setInt(2, age);</span>
+<span class="nc" id="L78">            ps.setInt(3, managerId);</span>
+<span class="nc" id="L79">            ps.setInt(4, id);</span>
+<span class="nc" id="L80">            ps.executeUpdate();</span>
+<span class="nc" id="L81">            System.out.println(&quot;Update Successful&quot;);</span>
+<span class="nc" id="L82">        } catch (SQLException e) {</span>
+<span class="nc" id="L83">            e.printStackTrace();</span>
+<span class="nc" id="L84">        }</span>
+<span class="nc" id="L85">    }</span>
+
+    // Main method to test the DAO functionality
+    public static void main(String[] args) {
+<span class="nc" id="L89">        EmployeeDAO employeeDAO = new EmployeeDAO();</span>
+
+        // Test inserting an employee
+<span class="nc" id="L92">        employeeDAO.insertEmployee(&quot;Leela Bannerjee&quot;, 32, 5);</span>
+
+        // Test deleting an employee
+<span class="nc" id="L95">        employeeDAO.deleteEmployee(5);</span>
+
+        // Test updating an employee
+<span class="nc" id="L98">        employeeDAO.updateEmployee(&quot;Ashish Gupta&quot;, 21, 2, 5);</span>
+
+        // Test reading all employees
+<span class="nc" id="L101">        employeeDAO.readAllUser();</span>
+<span class="nc" id="L102">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.9.202303310957</span></div></body></html>
