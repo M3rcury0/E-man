@@ -1,5 +1,22 @@
-# Mark all files in the src/main/java directory as Java
-src/main/java/* linguist-language=Java
-
-# Mark specific files as Java
+# Specify Java files as Java
 *.java linguist-language=Java
+
+# Specify all HTML files as HTML
+*.html linguist-language=HTML
+
+# Specify all JavaScript files as JavaScript
+*.js linguist-language=JavaScript
+
+# Specify all CSS files as CSS
+*.css linguist-language=CSS
+
+# Optionally exclude documentation, third-party libraries, and other non-code files from language statistics
+docs/* linguist-vendored
+vendor/* linguist-vendored
+node_modules/* linguist-vendored
+
+# Treat all Markdown files as documentation
+*.md linguist-documentation
+
+# Handle mixed content files to ensure correct language detection
+*.html linguist-detectable
