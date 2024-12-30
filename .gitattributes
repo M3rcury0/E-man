@@ -1,0 +1,5 @@
+# Mark all files in the src/main/java directory as Java
+src/main/java/* linguist-language=Java
+
+# Mark specific files as Java
+*.java linguist-language=Java

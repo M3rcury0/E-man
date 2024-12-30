@@ -1,19 +1,15 @@
+import React from 'react';
+import { Employee } from '../types/Employee';
 
-import React, { useEffect, useState } from 'react';
+const employees: Employee[] = [
+  { id: 1, name: 'John Doe', position: 'Software Engineer' },
+  { id: 2, name: 'Jane Smith', position: 'Project Manager' },
+  // Add more employees as needed
+];
 
 const EmployeeList: React.FC = () => {
-  const [employees, setEmployees] = useState([]);
-
-  useEffect(() => {
-    fetch('http://localhost:5000/api/employees')
-      .then(response => response.json())
-      .then(data => setEmployees(data))
-      .catch(error => console.error('Error fetching employees:', error));
-  }, []);
-
   return (
     <div>
-      <h1>Employee List</h1>
       <ul>
         {employees.map(employee => (
           <li key={employee.id}>{employee.name} - {employee.position}</li>
@@ -21,6 +17,6 @@ const EmployeeList: React.FC = () => {
       </ul>
     </div>
   );
-};
+}
 
 export default EmployeeList;
