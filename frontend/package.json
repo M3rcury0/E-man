@@ -1,18 +1,15 @@
 {
-  "name": "frontend",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "cra-template-typescript": "1.2.0",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "react-scripts": "5.0.1"
-  },
+  "name": "e-man-frontend",
+  "version": "1.0.0",
+  "description": "Employee Management System Frontend",
+  "main": "index.js",
   "scripts": {
-    "start": "react-scripts start",
+    "start": "http-server ./src -p 5500 --cors -o /html/login.html",
+    "react-start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "dev": "live-server src --port=5500 --entry-file=/html/login.html"
   },
   "eslintConfig": {
     "extends": [
@@ -32,10 +29,22 @@
       "last 1 safari version"
     ]
   },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1"
+  },
   "devDependencies": {
     "@types/react": "^19.0.2",
     "@types/react-dom": "^19.0.2",
+    "http-server": "^14.1.1",
+    "live-server": "^1.2.2",
     "typescript": "^4.9.5",
     "web-vitals": "^4.2.4"
-  }
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "homepage": "."
 }
