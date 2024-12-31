@@ -1,40 +1,80 @@
 # E-man - Employee Management System
 
-**E-man** is an Employee Management System that stores and manages employee data. This project is currently a work-in-progress and aims to provide basic functionality for adding, updating, and deleting employee records.
-
----
+**E-man** is a modern Employee Management System designed to efficiently store and manage employee data. The project is near completion and requires a few final touches.
 
 ## Project Overview
 
-This system is developed using **Spring Tools 4** for Eclipse and leverages **Maven** for build automation. The backend is powered by a **MySQL** database and is connected using **JDBC**.
+### Technology Stack
 
----
+- **Backend:**
+  - Java with Spring Tools 4
+  - Maven for build automation
+  - MySQL database with JDBC connection
+  
+- **Frontend:**
+  - HTML, CSS, JavaScript for UI/UX
+  - TypeScript for type-safe components
 
-## Features
+### Features
 
-- **CRUD Operations**: Allows for creating, reading, updating, and deleting employee data.
-- **Database Integration**: The application communicates with a MySQL database to manage employee records.
-- **DAO Layer**: Contains a `DAO` (Data Access Object) class for database operations.
+- **CRUD Operations:** 
+  - Create, Read, Update, and Delete employee records
+  - DAO layer for efficient data management
+  - Secure database operations
 
----
+- **User Interface:**
+  - Responsive design across devices
+  - Intuitive and modern interface
+  - Real-time data updates
 
+- **Database Integration:**
+  - MySQL database for data persistence
+  - Secure and efficient data handling
 
----
+## Prerequisites
 
-### Prerequisites
+Before running this project, ensure the following software is installed:
 
-Before running this project, ensure you have the following installed:
+- Java (version 21)
+- Eclipse IDE
+- Spring Tools 4 for Eclipse
+- Maven
+- MySQL Server and Workbench
+- Node.js and npm (for frontend)
 
-- **Java** (version 8 or above)
-- **Eclipse IDE**
-- **Spring Tools 4** for Eclipse
-- **Maven** (for build automation)
-- **MySQL** (for database connection)
+## Project Structure
 
----
-## Execution
+- **Backend:**
+  - Main Controller: `eman/src/main/java/com/eman/Controller/EmployeeController.java`
+  - Database schema: `eman/Database.sql`
+  
+- **Frontend:**
+  - Built with HTML, CSS, and JavaScript
+  - TypeScript components for enhanced functionality
 
-- The working **DAO file** is located at: `eman/src/main/java/com/eman/EmployeeDAO.java`
-- The **MySQL server** with the database needs to be online for CRUD operations to work.
-- The `.sql` file containing the schema and tables is located at: `eman/Database.sql`
+## Running the Project
+
+# Step 1: Clone the Repository
+git clone https://github.com/M3rcury0/E-man.git
+cd E-man
+
+# Step 2: Database Setup
+# - Open MySQL Workbench.
+# - Execute the SQL file located at `eman/Database.sql`.
+# - Update the `username` and `password` fields in `backend/src/main/resources/application.properties` with your MySQL credentials.
+
+# Step 3: Backend Setup
+cd E-man/backend
+mvn clean install
+mvn spring-boot:run
+
+# Step 4: Frontend Setup
+cd ../frontend
+npm install
+npm start
+
+# Step 5: Access the Application
+# Use one of the pre-loaded credentials to log in, like:
+# - Username: suman@24
+# - Password: eteawsrfdasdfc65
 
