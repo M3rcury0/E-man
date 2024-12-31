@@ -5,6 +5,7 @@ com\eman\service\EmployeeService.class
 com\eman\EmployeeDAO.class
 com\eman\repository\UserRepository.class
 com\eman\entity\Employee.class
+com\eman\controller\LoginRequest.class
 com\eman\repository\ManagerRepository.class
 com\eman\repository\EmployeeRepository.class
 com\eman\entity\User.class

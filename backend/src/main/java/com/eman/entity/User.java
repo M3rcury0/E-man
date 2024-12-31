@@ -1,3 +1,4 @@
+
 package com.eman.entity;
 
 import jakarta.persistence.*;
@@ -7,10 +8,10 @@ import jakarta.persistence.*;
 public class User {
     
     @Id
-    @Column(name = "username", length = 45)
+    @Column(name = "username")
     private String username;
     
-    @Column(name = "password", length = 45, nullable = false)
+    @Column(name = "password")
     private String password;
     
     // Getters and Setters

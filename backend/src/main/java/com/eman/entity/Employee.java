@@ -23,6 +23,28 @@ public class Employee {
     @JoinColumn(name = "manager_id")
     @JsonBackReference
     private Manager manager;
+    @Column(name = "username", unique = true, nullable = false)
+    private String username;
+
+    @Column(name = "password", nullable = false)
+    private String password;
+
+    // Add getters and setters
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
     
     // Constructors
     public Employee() {
