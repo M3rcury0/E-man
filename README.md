@@ -54,27 +54,27 @@ Before running this project, ensure the following software is installed:
 
 ## Running the Project
 
-# Step 1: Clone the Repository
+### Step 1: Clone the Repository
 git clone https://github.com/M3rcury0/E-man.git
 cd E-man
 
-# Step 2: Database Setup
-# - Open MySQL Workbench.
-# - Execute the SQL file located at `eman/Database.sql`.
-# - Update the `username` and `password` fields in `backend/src/main/resources/application.properties` with your MySQL credentials.
+### Step 2: Database Setup
+ - Open MySQL Workbench.
+ - Execute the SQL file located at `eman/Database.sql`.
+ - Update the `username` and `password` fields in `backend/src/main/resources/application.properties` with your MySQL credentials.
 
-# Step 3: Backend Setup
-cd E-man/backend
-mvn clean install
-mvn spring-boot:run
+### Step 3: Backend Setup
+ - cd E-man/backend
+ - mvn clean install
+ - mvn spring-boot:run
 
-# Step 4: Frontend Setup
-cd ../frontend
-npm install
-npm start
+### Step 4: Frontend Setup
+ - cd ../frontend
+ - npm install
+ - npm start
 
-# Step 5: Access the Application
-# Use one of the pre-loaded credentials to log in, like:
-# - Username: suman@24
-# - Password: eteawsrfdasdfc65
+### Step 5: Access the Application
+ -  Use one of the pre-loaded credentials to log in, like:
+    - Username: suman@24
+    - Password: eteawsrfdasdfc65
 
