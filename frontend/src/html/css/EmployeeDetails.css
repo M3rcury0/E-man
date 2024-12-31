@@ -1,0 +1,87 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+  }
+  
+  /* Container Styles */
+  .employee-list-container, .employee-details-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    border-color:rgb(57, 56, 56);
+    border-style:solid ;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Header */
+  .employee-list-container h1, .employee-details-container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #ff7200;
+  }
+  
+  /* Table Styles */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  
+  thead tr {
+    background-color:#ff7200;
+    color: white;
+  }
+  
+  th, td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+  }
+  
+  tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  tbody tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  /* Employee Info */
+  .employee-info p {
+    margin: 8px 0;
+    font-size: 16px;
+  }
+  
+  .employee-info strong {
+    color:#ff7200;
+  }
+  
+  /* Links */
+  a {
+    display: inline-block;
+    margin-top: 20px;
+    color: #ff7200;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 600px) {
+    .employee-list-container, .employee-details-container {
+      padding: 10px;
+    }
+  
+    table {
+      font-size: 14px;
+    }
+  }
+  

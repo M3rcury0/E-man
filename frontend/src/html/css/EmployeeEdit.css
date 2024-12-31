@@ -1,0 +1,92 @@
+/* General Body Styling */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #fff; /* Light gray background */
+  margin: 0;
+  padding: 0;
+}
+
+/* Container Styling */
+.container {
+  max-width: 600px;
+  width:100%;
+  margin: 50px auto;
+  background: #fff; /* White background for form */
+  border-radius: 10px; /* Rounded corners */
+  border-color:#000;
+  border-style:solid ;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  padding: 20px;
+}
+
+/* Form Heading */
+h2 {
+  text-align: center;
+  color: #ff7200; 
+  margin-bottom: 20px;
+}
+
+/* Form Labels */
+.form-label {
+  color: #ff7200; 
+  font-weight: 300;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+/* Form Inputs */
+.form-control {
+  border: 1px solid #484848; 
+  border-radius: 5px; 
+  padding: 10px;
+  justify-content: space-evenly;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+/* Select Dropdown */
+select.form-control {
+  appearance: none;
+  background-color: #fff; /* White background */
+  cursor: pointer;
+}
+
+/* Buttons */
+button {
+  padding: 10px 15px;
+  font-size: 16px;
+  border-radius: 4px;
+  transition: all 0.3s ease-in-out; /* Smooth hover effects */
+  
+}
+
+/* Primary Button */
+.btn-primary {
+  background-color:#ff7200; 
+  
+}
+
+.btn-primary:hover {
+  background-color: #ff7200; 
+}
+
+/* Secondary Button */
+.btn-secondary {
+  background-color: #6c757d; /* Bootstrap Secondary */
+  border: none;
+ 
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268; /* Darker shade on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    margin: 15px;
+    padding: 10px;
+    
+  }
+}
