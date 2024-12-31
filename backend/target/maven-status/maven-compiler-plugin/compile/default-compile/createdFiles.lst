@@ -1,6 +1,13 @@
-com\eman\repository\EmployeeRepository.class
+com\eman\entity\Manager.class
+com\eman\config\CorsConfig.class
 com\eman\service\EmployeeService.class
-com\eman\EmployeeApplication.class
 com\eman\EmployeeDAO.class
+com\eman\repository\UserRepository.class
 com\eman\entity\Employee.class
+com\eman\repository\ManagerRepository.class
+com\eman\repository\EmployeeRepository.class
+com\eman\entity\User.class
+com\eman\service\UserService.class
+com\eman\service\ManagerService.class
+com\eman\EmployeeApplication.class
 com\eman\controller\EmployeeController.class

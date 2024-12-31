@@ -1,7 +1,13 @@
-C:\Users\himal\Documents\Projects\E-man\backend\src\main\java\com\eman\EmployeeApplication.java
-C:\Users\himal\Documents\Projects\E-man\backend\src\main\java\com\eman\entity\Employee.java
+C:\Users\himal\Documents\Projects\E-man\backend\src\main\java\com\eman\repository\UserRepository.java
 C:\Users\himal\Documents\Projects\E-man\backend\src\main\java\com\eman\service\EmployeeService.java
+C:\Users\himal\Documents\Projects\E-man\backend\src\main\java\com\eman\service\UserService.java
+C:\Users\himal\Documents\Projects\E-man\backend\src\main\java\com\eman\service\ManagerService.java
+C:\Users\himal\Documents\Projects\E-man\backend\src\main\java\com\eman\EmployeeApplication.java
+C:\Users\himal\Documents\Projects\E-man\backend\src\main\java\com\eman\entity\User.java
+C:\Users\himal\Documents\Projects\E-man\backend\src\main\java\com\eman\entity\Employee.java
+C:\Users\himal\Documents\Projects\E-man\backend\src\main\java\com\eman\entity\Manager.java
 C:\Users\himal\Documents\Projects\E-man\backend\src\main\java\com\eman\config\CorsConfig.java
 C:\Users\himal\Documents\Projects\E-man\backend\src\main\java\com\eman\EmployeeDAO.java
+C:\Users\himal\Documents\Projects\E-man\backend\src\main\java\com\eman\repository\ManagerRepository.java
 C:\Users\himal\Documents\Projects\E-man\backend\src\main\java\com\eman\controller\EmployeeController.java
 C:\Users\himal\Documents\Projects\E-man\backend\src\main\java\com\eman\repository\EmployeeRepository.java

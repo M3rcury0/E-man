@@ -1,35 +1,35 @@
-// EmployeeList.js
-
-document.addEventListener('DOMContentLoaded', function() {
-    fetchEmployees();
-});
-
-async function fetchEmployees() {
-    try {
-        console.log('Attempting to fetch employees...');
-        const response = await fetch('http://localhost:8080/api/employees', {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            },
-            // Add this to handle CORS
-            mode: 'cors',
-            credentials: 'include'
-        });
-
-        console.log('Response status:', response.status);
-        
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
-        const employees = await response.json();
-        console.log('Fetched employees:', employees);
-        displayEmployees(employees);
-    } catch (error) {
-        console.error('Detailed error:', error);
-        const tableBody = document.getElementById('employeeTableBody');
-        tableBody.innerHTML = `<tr><td colspan="4" style="text-align: center;">Failed to fetch: ${error.message}</td></tr>`;
+function displayEmployees(employees) {
+    const tableBody = document.getElementById('employeeTableBody');
+    if (!tableBody) {
+        console.error('Could not find employeeTableBody element');
+        return;
     }
+
+    tableBody.innerHTML = '';
+    
+    if (!employees || employees.length === 0) {
+        tableBody.innerHTML = `
+            <tr>
+                <td colspan="5" style="text-align: center;">
+                    No employees found in the database
+                </td>
+            </tr>`;
+        return;
+    }
+
+    employees.forEach(employee => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${employee.id || 'N/A'}</td>
+            <td>${employee.name || 'N/A'}</td>
+            <td>${employee.age || 'N/A'}</td>
+            <td>${employee.manager ? employee.manager.department : 'N/A'}</td>
+            <td>
+                <button onclick="viewEmployee(${employee.id})" class="btn btn-info btn-sm">View</button>
+                <button onclick="editEmployee(${employee.id})" class="btn btn-warning btn-sm">Edit</button>
+                <button onclick="deleteEmployee(${employee.id})" class="btn btn-danger btn-sm">Delete</button>
+            </td>
+        `;
+        tableBody.appendChild(row);
+    });
 }

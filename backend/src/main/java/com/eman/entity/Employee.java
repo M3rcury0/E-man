@@ -3,56 +3,64 @@ package com.eman.entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "employees")
+@Table(name = "employee")
 public class Employee {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
     
+    @Column(name = "name", length = 45, nullable = false)
     private String name;
-    private String username;
-    private String password;
-    private String role;
-
+    
+    @Column(name = "age", nullable = false)
+    private Integer age;
+    
+    @Column(name = "manager_id")
+    private Integer managerId;
+    
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "manager_id", insertable = false, updatable = false)
+    private Manager manager;
+    
     // Getters and Setters
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
-
-    public void setId(Long id) {
+    
+    public void setId(Integer id) {
         this.id = id;
     }
-
+    
     public String getName() {
         return name;
     }
-
+    
     public void setName(String name) {
         this.name = name;
     }
-
-    public String getUsername() {
-        return username;
+    
+    public Integer getAge() {
+        return age;
     }
-
-    public void setUsername(String username) {
-        this.username = username;
+    
+    public void setAge(Integer age) {
+        this.age = age;
     }
-
-    public String getPassword() {
-        return password;
+    
+    public Integer getManagerId() {
+        return managerId;
     }
-
-    public void setPassword(String password) {
-        this.password = password;
+    
+    public void setManagerId(Integer managerId) {
+        this.managerId = managerId;
     }
-
-    public String getRole() {
-        return role;
+    
+    public Manager getManager() {
+        return manager;
     }
-
-    public void setRole(String role) {
-        this.role = role;
+    
+    public void setManager(Manager manager) {
+        this.manager = manager;
     }
 }
