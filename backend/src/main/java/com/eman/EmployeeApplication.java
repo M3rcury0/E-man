@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
-@EntityScan("com.eman.model")
-@EnableJpaRepositories("com.eman.repository")
+@EntityScan("com.eman.entity")  // Changed from "com.eman.model" to "com.eman.entity"
+@EnableJpaRepositories("com.eman")  // Changed to scan from root package
 public class EmployeeApplication {
     public static void main(String[] args) {
         SpringApplication.run(EmployeeApplication.class, args);
