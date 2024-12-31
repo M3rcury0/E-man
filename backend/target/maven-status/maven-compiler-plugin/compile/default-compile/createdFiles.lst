@@ -1,4 +1,5 @@
 com\eman\entity\Manager.class
+com\eman\config\JpaConfig.class
 com\eman\config\CorsConfig.class
 com\eman\service\EmployeeService.class
 com\eman\EmployeeDAO.class

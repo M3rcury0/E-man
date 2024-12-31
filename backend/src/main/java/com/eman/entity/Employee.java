@@ -20,11 +20,6 @@ public class Employee {
     @JoinColumn(name = "manager_id")
     private Manager manager;
     
-    // Add this method to maintain compatibility
-    public Integer getManagerId() {
-        return manager != null ? manager.getId() : null;
-    }
-    
     // Constructors
     public Employee() {
     }
@@ -34,7 +29,7 @@ public class Employee {
         this.age = age;
     }
     
-    // Existing getters and setters
+    // Getters and Setters
     public Integer getId() {
         return id;
     }
@@ -65,5 +60,9 @@ public class Employee {
     
     public void setManager(Manager manager) {
         this.manager = manager;
+    }
+    
+    public Integer getManagerId() {
+        return manager != null ? manager.getId() : null;
     }
 }

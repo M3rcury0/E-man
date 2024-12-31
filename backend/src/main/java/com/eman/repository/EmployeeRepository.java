@@ -9,6 +9,4 @@ import java.util.Optional;
 @Repository
 public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
     List<Employee> findAll();
-    Optional<Employee> findByUsername(String username);
-    boolean existsByUsername(String username);
 }
