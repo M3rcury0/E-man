@@ -2,9 +2,12 @@ package com.eman.entity;
 
 import jakarta.persistence.*;
 import java.util.List;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "manager")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) // Add this annotation
 public class Manager {
     
     @Id
@@ -17,10 +20,21 @@ public class Manager {
     @Column(name = "department", length = 225, nullable = false)
     private String department;
     
-    @OneToMany(mappedBy = "manager")
+    @OneToMany(mappedBy = "manager", fetch = FetchType.EAGER) // Change to EAGER fetch
+    @JsonManagedReference
     private List<Employee> employees;
     
-    // Getters and Setters
+    // Default constructor
+    public Manager() {
+    }
+    
+    // Constructor with fields
+    public Manager(String name, String department) {
+        this.name = name;
+        this.department = department;
+    }
+    
+    // Your existing getters and setters remain the same
     public Integer getId() {
         return id;
     }
@@ -51,5 +65,15 @@ public class Manager {
     
     public void setEmployees(List<Employee> employees) {
         this.employees = employees;
+    }
+    
+    // Add toString method for debugging
+    @Override
+    public String toString() {
+        return "Manager{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", department='" + department + '\'' +
+                '}';
     }
 }

@@ -1,9 +1,12 @@
 package com.eman.entity;
 
 import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "employee")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Employee {
     
     @Id
@@ -16,8 +19,9 @@ public class Employee {
     @Column(name = "age", nullable = false)
     private Integer age;
     
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)  // Change this from LAZY to EAGER
     @JoinColumn(name = "manager_id")
+    @JsonBackReference
     private Manager manager;
     
     // Constructors
@@ -64,5 +68,24 @@ public class Employee {
     
     public Integer getManagerId() {
         return manager != null ? manager.getId() : null;
+    }
+    
+    // Add these helper methods to get manager details
+    public String getManagerName() {
+        return manager != null ? manager.getName() : null;
+    }
+    
+    public String getManagerDepartment() {
+        return manager != null ? manager.getDepartment() : null;
+    }
+    
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                ", manager=" + (manager != null ? manager.getName() : "null") +
+                '}';
     }
 }
