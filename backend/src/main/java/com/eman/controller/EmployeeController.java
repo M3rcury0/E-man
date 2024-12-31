@@ -9,18 +9,18 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/employees")
 @CrossOrigin(origins = "*")
 public class EmployeeController {
 
-	 @Autowired
-	    private UserService userService;
-	    
-	    @Autowired
-	    private ManagerService managerService;
+    @Autowired
+    private UserService userService;
+    
+    @Autowired
+    private ManagerService managerService;
+    
     @Autowired
     private EmployeeRepository employeeRepository;
 
@@ -51,5 +51,5 @@ public class EmployeeController {
         }
     }
 
-    // Update other endpoints to match the new entity structure
+    // Other endpoints...
 }

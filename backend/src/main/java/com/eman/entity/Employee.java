@@ -16,14 +16,25 @@ public class Employee {
     @Column(name = "age", nullable = false)
     private Integer age;
     
-    @Column(name = "manager_id")
-    private Integer managerId;
-    
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "manager_id", insertable = false, updatable = false)
+    @JoinColumn(name = "manager_id")
     private Manager manager;
     
-    // Getters and Setters
+    // Add this method to maintain compatibility
+    public Integer getManagerId() {
+        return manager != null ? manager.getId() : null;
+    }
+    
+    // Constructors
+    public Employee() {
+    }
+    
+    public Employee(String name, Integer age) {
+        this.name = name;
+        this.age = age;
+    }
+    
+    // Existing getters and setters
     public Integer getId() {
         return id;
     }
@@ -46,14 +57,6 @@ public class Employee {
     
     public void setAge(Integer age) {
         this.age = age;
-    }
-    
-    public Integer getManagerId() {
-        return managerId;
-    }
-    
-    public void setManagerId(Integer managerId) {
-        this.managerId = managerId;
     }
     
     public Manager getManager() {
