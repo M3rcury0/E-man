@@ -1,48 +1,48 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const loginForm = document.getElementById("loginForm");
-    const errorMessage = document.getElementById("errorMessage");
+document.addEventListener('DOMContentLoaded', function() {
+    const loginButton = document.getElementById('loginButton');
 
-    if (loginForm) {
-        loginForm.addEventListener("submit", (event) => {
-            event.preventDefault();
+    loginButton.addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent the default form submission behavior
 
-            const username = document.getElementById("username").value.trim();
-            const password = document.getElementById("password").value.trim();
+        const usernameInput = document.querySelector('input[name="username"]');
+        const passwordInput = document.querySelector('input[name="password"]');
+        const username = usernameInput.value.trim();
+        const password = passwordInput.value.trim();
 
-            // Clear any previous error message
-            errorMessage.style.display = "none";
+        // Check if the inputs are empty
+        if (!username || !password) {
+            alert('Username and password fields cannot be empty.');
+            return;
+        }
 
-            // Validate the inputs
-            if (username === "" || password === "") {
-                errorMessage.textContent = "Both username and password are required.";
-                errorMessage.style.display = "block";
-                return;
+        const credentials = {
+            username: username,
+            password: password
+        };
+
+        // Send the credentials to the backend using fetch
+        fetch('http://localhost:8080/api/employees/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(credentials)
+        })
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw new Error('Login failed');
             }
-
-            // Make a request to the backend API for authentication
-            fetch('http://localhost:3000/login', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ username, password }),
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    // Redirect to the dashboard if login is successful
-                    window.location.href = "dashboard.html";
-                } else {
-                    // Show an error message if login fails
-                    errorMessage.textContent = "Invalid username or password.";
-                    errorMessage.style.display = "block";
-                }
-            })
-            .catch(error => {
-                console.error('Error during login:', error);
-                errorMessage.textContent = "An error occurred. Please try again later.";
-                errorMessage.style.display = "block";
-            });
+        })
+        .then(data => {
+            console.log('Login successful:', data);
+            // Redirect to the main application page (e.g., dashboard.html)
+            window.location.href = 'dashboard.html'; // Adjust this path to your actual dashboard page
+        })
+        .catch(error => {
+            console.error('Error during login:', error);
+            alert('Login failed. Please check your credentials and try again.');
         });
-    }
+    });
 });

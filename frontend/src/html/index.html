@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Employee Management</title>
+  </head>
+  <body>
+    <h1>Employee Management System</h1>
+
+    <button id="fetchButton">Fetch Employees</button>
+    <button id="createButton">Create Employee</button>
+    <button id="loginButton">Login</button>
+    <!-- Added Login Button -->
+
+    <div id="employeeList"></div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const fetchButton = document.getElementById("fetchButton");
+        const createButton = document.getElementById("createButton");
+        const loginButton = document.getElementById("loginButton"); // Login Button
+        const employeeList = document.getElementById("employeeList");
+
+        // Fetch all employees
+        fetchButton.addEventListener("click", function () {
+          fetch("http://localhost:8080/api/employees")
+            .then((response) => response.json())
+            .then((data) => {
+              console.log(data);
+              // Display employees in the employeeList div
+              employeeList.innerHTML = "";
+              data.forEach((employee) => {
+                const employeeItem = document.createElement("div");
+                employeeItem.textContent = `Name: ${employee.name}, Role: ${employee.role}`;
+                employeeList.appendChild(employeeItem);
+              });
+            })
+            .catch((error) => console.error("Error:", error));
+        });
+
+        // Create a new employee
+        createButton.addEventListener("click", function () {
+          fetch("http://localhost:8080/api/employees", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ name: "John Doe", role: "Developer" }),
+          })
+            .then((response) => response.json())
+            .then((data) => console.log(data))
+            .catch((error) => console.error("Error:", error));
+        });
+
+        // Redirect to login page
+        loginButton.addEventListener("click", function () {
+          window.location.href = "login.html"; // Adjust this path to your actual login page
+        });
+      });
+    </script>
+  </body>
+</html>

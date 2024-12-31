@@ -1,21 +1,50 @@
-// js/add-employee.js
-document.addEventListener("DOMContentLoaded", () => {
-    const addEmployeeForm = document.getElementById("addEmployeeForm");
+document.addEventListener('DOMContentLoaded', function() {
+    const addEmployeeButton = document.getElementById('addEmployeeButton');
 
-    if (addEmployeeForm) {
-        addEmployeeForm.addEventListener("submit", (event) => {
-            event.preventDefault();
+    addEmployeeButton.addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent the default form submission behavior
 
-            const name = document.getElementById("name").value;
-            const department = document.getElementById("department").value;
-            const email = document.getElementById("email").value;
-            const phone = document.getElementById("phone").value;
+        const empNameInput = document.querySelector('input[name="empName"]');
+        const empRoleInput = document.querySelector('input[name="empRole"]');
+        const empName = empNameInput.value.trim();
+        const empRole = empRoleInput.value.trim();
 
-            // Example: Save employee data (replace with real API call)
-            console.log("New employee data:", { name, department, email, phone });
+        // Check if the inputs are empty
+        if (!empName || !empRole) {
+            alert('Employee name and role fields cannot be empty.');
+            return;
+        }
 
-            alert("Employee added successfully!");
-            window.location.href = "employee-list.html";
+        const employee = {
+            name: empName,
+            role: empRole
+        };
+
+        // Send the employee details to the backend using fetch
+        fetch('http://localhost:8080/api/employees/add', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(employee)
+        })
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw new Error('Failed to add employee');
+            }
+        })
+        .then(data => {
+            console.log('Employee added successfully:', data);
+            alert('Employee added successfully!');
+            // Clear the input fields
+            empNameInput.value = '';
+            empRoleInput.value = '';
+        })
+        .catch(error => {
+            console.error('Error adding employee:', error);
+            alert('Failed to add employee. Please try again.');
         });
-    }
+    });
 });
