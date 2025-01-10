@@ -19,7 +19,7 @@
 
 - **CRUD Operations:** 
   - Create, Read, Update, and Delete employee records
-  - DAO layer for efficient data management
+  - Service layer for efficient data management
   - Secure database operations
 
 - **User Interface:**
