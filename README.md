@@ -1,6 +1,6 @@
 # E-man - Employee Management System
 
-**E-man** is a modern Employee Management System designed to efficiently store and manage employee data. The project is near completion and requires a few final touches.
+**E-man** is a modern Employee Management System designed to efficiently store and manage employee data.
 
 ## Project Overview
 
